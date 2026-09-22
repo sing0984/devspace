@@ -19,6 +19,7 @@ attributes:
         # /dev/fuse allows efficient filesystems for rootless containers (fuse-overlayfs)
         # /dev/net/run allows efficient networking for rootless containers (passt/pasta)
         io.kubernetes.cri-o.Devices: '/dev/fuse,/dev/net/tun'
+        openshift.io/required-scc: adp3g-build
 components:
   - name: tools
     container:
