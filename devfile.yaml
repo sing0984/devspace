@@ -1,12 +1,11 @@
 schemaVersion: 2.2.0
 metadata:
   name: my-workspace
-attributes:
-  pod-overrides:
-    spec:
-      serviceAccountName: devspaces-sa
 components:
   - name: tools
     container:
       image: artifactory-cedp-bin.apps.aro01.prd.ocp.az.cldsvcs.net/adp3g-docker-internal-development-local/ca.gc.cra.rc3g/adp3g-build:2.0.0
       command: ["/bin/sh", "-c", "sleep infinity"]
+
+
+
