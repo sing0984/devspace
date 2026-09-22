@@ -2,6 +2,15 @@ schemaVersion: 2.2.0
 metadata:
   name: my-workspace
 attributes:
+  container-overides:
+    securityContext:
+      capabilities:
+        add:
+          # See SecurityContextConstraints for details on required capabilities
+          - SETGID
+          - SETUID
+          - SYS_ADMIN
+          - SYS_CHROOT
   pod-overrides:
     spec:
       serviceAccountName: adp3g-build
