@@ -1,11 +1,19 @@
 schemaVersion: 2.2.0
 metadata:
   name: my-workspace
+attributes:
+  pod-overrides:
+    spec:
+      serviceAccountName: adp3g-build
+    metadata:
+      annotations:
+        # /dev/fuse allows efficient filesystems for rootless containers (fuse-overlayfs)
+        # /dev/net/run allows efficient networking for rootless containers (passt/pasta)
+        io.kubernetes.cri-o.Devices: '/dev/fuse,/dev/net/tun'
 components:
   - name: tools
     container:
       image: image-registry.openshift-image-registry.svc:5000/vinay-devspaces/adp3g-build:2.0.0
       command: ["/bin/sh", "-c", "sleep infinity"]
-
 
 
