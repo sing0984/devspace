@@ -4,7 +4,7 @@ metadata:
 components:
   - name: tools
     container:
-      image: artifactory-cedp-bin.apps.aro01.prd.ocp.az.cldsvcs.net/adp3g-docker-internal-development-local/ca.gc.cra.rc3g/adp3g-build:2.0.0
+      image: artifactory-cedp-bin.apps.aro01.prd.ocp.az.cldsvcs.net/adp3g-docker-internal-production-local/ca.gc.cra.rc3g/adp3g-build:2.0.0
       command: ["/bin/sh", "-c", "sleep infinity"]
 
 
