@@ -2,15 +2,15 @@ schemaVersion: 2.2.0
 metadata:
   name: my-workspace
 attributes:
-  # container-overides:
-  #   securityContext:
-  #     capabilities:
-  #       add:
-  #         # See SecurityContextConstraints for details on required capabilities
-  #         - SETGID
-  #         - SETUID
-  #         - SYS_ADMIN
-  #         - SYS_CHROOT
+  container-overides:
+    securityContext:
+      capabilities:
+        add:
+          # See SecurityContextConstraints for details on required capabilities
+          - SETGID
+          - SETUID
+          - SYS_ADMIN
+          - SYS_CHROOT
   pod-overrides:
     spec:
       serviceAccountName: adp3g-build
@@ -25,14 +25,7 @@ components:
     container:
       image: image-registry.openshift-image-registry.svc:5000/vinay-devspaces/adp3g-build:2.0.0
       command: ["/bin/sh", "-c", "sleep infinity"]
-      securityContext:
-        capabilities:
-          add:
-            # See SecurityContextConstraints for details on required capabilities
-            - SETGID
-            - SETUID
-            - SYS_ADMIN
-            - SYS_CHROOT 
+
 
 
 
