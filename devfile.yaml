@@ -22,7 +22,7 @@ attributes:
 components:
   - name: tools
     container:
-      image: image-registry.openshift-image-registry.svc:5000/vinay-devspaces/adp3g-build:2.0.0
+      image: image-registry.openshift-image-registry.svc:5000/vinay-devspaces/adp3g-build:latest
       command:
         - sleep
       args:
