@@ -5,6 +5,7 @@ attributes:
   container-overides:
     securityContext:
       runAsUser: 1000 #adp3g-build user as 1000
+      runAsNonRoot: true
       capabilities:
         add:
           - SETGID
