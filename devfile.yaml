@@ -28,6 +28,16 @@ components:
         - sleep
       args:
         - infinity
+      env:
+        - name: JAVA_HOME
+          value: "/opt/jdk-17.0.15"
+        - name: MAVEN_HOME
+          value: "/opt/maven-3.9.11"
+        - name: NODE_HOME
+          value: "/opt/node-24.15.0"
+        - name: OC_HOME
+          value: "/opt/oc-4.20.0-202608260744"
+
       # command:   # from cmd and below, config for podman 
       #   - /usr/bin/podman 
       # args:
