@@ -4,27 +4,40 @@ metadata:
 attributes:
   container-overides:
     securityContext:
+      runAsUser: 1000 #adp3g-build user as 1000
       capabilities:
         add:
-          # See SecurityContextConstraints for details on required capabilities
           - SETGID
           - SETUID
-          - SYS_ADMIN
-          - SYS_CHROOT
   pod-overrides:
     spec:
       serviceAccountName: adp3g-build
+      hostUsers: false  #for podman hostname is false 
     metadata:
       annotations:
         # /dev/fuse allows efficient filesystems for rootless containers (fuse-overlayfs)
         # /dev/net/run allows efficient networking for rootless containers (passt/pasta)
         io.kubernetes.cri-o.Devices: '/dev/fuse,/dev/net/tun'
-        openshift.io/required-scc: adp3g-build
+        openshift.io/required-scc: nested-container
 components:
   - name: tools
     container:
       image: image-registry.openshift-image-registry.svc:5000/vinay-devspaces/adp3g-build:2.0.0
-      command: ["/bin/sh", "-c", "sleep infinity"]
+      command:
+        - sleep
+      args:
+        - infinity
+      # command:   # from cmd and below, config for podman 
+      #   - /usr/bin/podman 
+      # args:
+      #   - system
+      #   - service
+      #   - --time
+      #   - '0'
+      #   - unix:///run/user/1000/docker.sock
+      # env:
+      #   - name: DOCKER_HOST 
+      #     value: unix:///run/user/1000/docker.sock
 
 
 
