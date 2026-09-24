@@ -1,25 +1,25 @@
 schemaVersion: 2.2.0
 metadata:
   name: my-workspace
-attributes:
-  container-overides:
-    securityContext:
-      runAsUser: 1000 #adp3g-build user as 1000
-      runAsNonRoot: true
-      capabilities:
-        add:
-          - SETGID
-          - SETUID
-  pod-overrides:
-    spec:
-      serviceAccountName: adp3g-build
-      hostUsers: false  #for podman hostname is false 
-    metadata:
-      annotations:
-        # /dev/fuse allows efficient filesystems for rootless containers (fuse-overlayfs)
-        # /dev/net/run allows efficient networking for rootless containers (passt/pasta)
-        io.kubernetes.cri-o.Devices: '/dev/fuse,/dev/net/tun'
-        openshift.io/required-scc: nested-container
+# attributes:
+  # container-overides:
+  #   securityContext:
+  #     runAsUser: 1000 #adp3g-build user as 1000
+  #     runAsNonRoot: true
+  #     capabilities:
+  #       add:
+  #         - SETGID
+  #         - SETUID
+  # pod-overrides:
+  #   spec:
+  #     serviceAccountName: adp3g-build
+  #     hostUsers: false  #for podman hostname is false 
+  #   metadata:
+  #     annotations:
+  #       # /dev/fuse allows efficient filesystems for rootless containers (fuse-overlayfs)
+  #       # /dev/net/run allows efficient networking for rootless containers (passt/pasta)
+  #       io.kubernetes.cri-o.Devices: '/dev/fuse,/dev/net/tun'
+  #       openshift.io/required-scc: nested-container
 components:
   - name: tools
     container:
